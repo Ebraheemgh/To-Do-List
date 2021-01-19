@@ -1,5 +1,4 @@
 var close = document.querySelectorAll("li .close:first-child");
-console.log(close);
 var list = document.querySelectorAll("li .close:nth-child(2)");
 var list1 = document.querySelectorAll("li");
 
@@ -26,26 +25,22 @@ function newElement() {
     span2.appendChild(txt2);
     li.appendChild(span);
     li.appendChild(span2);
-    
+
     close = document.querySelectorAll(".close:first-child");
     list = document.querySelectorAll("li .close:nth-child(2)");
 
-     list1 = document.querySelectorAll("li");
-    for(let i=0 ; i<list.length; i++){
+    list1 = document.querySelectorAll("li");
+    for (let i = 0; i < list.length; i++) {
         list[i].addEventListener('click', function(e) {
-               list1[i].classList.toggle('checked');
-           
-            
-            console.log(list[i]);
+            list1[i].classList.toggle('checked');
         });
-        }
+    }
 
-    console.log(close);
+
     for (i = 0; i < close.length; i++) {
-        console.log(close);
         close[i].onclick = function() {
             var div = this.parentElement;
-            div.style.display = "none";
+            div.remove();
         }
     }
 }
