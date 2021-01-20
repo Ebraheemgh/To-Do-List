@@ -1,76 +1,104 @@
-test("Writing a task", t => {
-    const input = document.getElementById("myInput");
-    input.value = "GYM";
-    const button = document.getElementById("addButton");
-    button.click();
+test("writing a task", t=>{
+    let taskIn = document.getElementById("taskInput");
+    taskIn.value= "GYM";
+
+    const click = document.querySelector("#add");
+    click.click();
+
     const expected = 1;
     const result = document.querySelectorAll("li").length;
     t.equal(expected, result);
-    document.querySelector("ul").innerHTML = "";
-});
+    document.getElementById("myList").innerHTML="";
+})
 
-test("Writing a task with correct input", t => {
-    const input = document.getElementById("myInput");
-    input.value = "eat";
-    const button = document.getElementById("addButton");
-    button.click();
-    const expected = "eat×✓";
-    const result = document.querySelector("ul li:first-child").textContent;
+
+test("writing a task with a correct input" , t=>{
+    let taskIn = document.getElementById("taskInput");
+    taskIn.value= "GYM";
+
+    const click = document.querySelector("#add");
+    click.click();
+
+    const expected = "GYM✔";
+    const result = document.querySelector("li").textContent;
+    t.equal(expected, result);
+    document.getElementById("myList").innerHTML="";
+})
+
+
+// test("check empty input" , t=>{
+
+//     let taskIn = document.getElementById("taskInput");
+//     taskIn.value= "";
+
+//     const click = document.querySelector("#add");
+//     click.click();
+
+//     const expected = 0;
+//     const result = document.querySelectorAll("ol li").length;
+//     console.log(result);
+//     t.equal(expected, result);
+//     document.getElementById("myList").innerHTML="";
+
+// })
+
+
+test("check the delete button" , t=>{
+    let taskIn = document.getElementById("taskInput");
+    taskIn.value= "GYM";
+
+    const click = document.querySelector("#add");
+    click.click();
+
+    const trash = document.querySelector("li div span:first-child");
+
+    trash.click();
+
+    const expected = 0;
+    const result = document.querySelectorAll("ol li").length;
     console.log(result);
     t.equal(expected, result);
-    document.querySelector("ul").innerHTML = "";
-});
+    document.getElementById("myList").innerHTML="";
+})
 
-// test("Writing a task with empty input", t => {
-//     const input = document.getElementById("myInput");
-//     input.value = "";
-//     const button = document.getElementById("addButton");
-//     button.click();
-//     const expected = 0;
-//     const result = document.querySelectorAll("li").length;
-//     t.equal(expected, result);
-//     document.querySelector("ul").innerHTML = "";
-// });
 
-test("check the task true", t => {
-    const input = document.getElementById("myInput");
-    input.value = "GYM";
-    const button = document.getElementById("addButton");
-    button.click();
-    const trueB = document.querySelector("ul li:first-child span:nth-child(2)");
-    trueB.click();
+
+test("check the check button" , t=>{
+    let taskIn = document.getElementById("taskInput");
+    taskIn.value= "GYM";
+
+    const click = document.querySelector("#add");
+    click.click();
+
+    const check = document.querySelector("li div span:nth-child(2)");
+    check.click();
+
     const expected = "checked";
-    const li = document.querySelector("ul li:first-child");
-    const result = li.className;
-    t.equal(result, expected);
-    document.querySelector("ul").innerHTML = "";
-});
-
-test("uncheck the task true", t => {
-    const input = document.getElementById("myInput");
-    input.value = "GYM";
-    const button = document.getElementById("addButton");
-    button.click();
-    const trueB = document.querySelector("ul li:first-child span:nth-child(2)");
-    trueB.click();
-    trueB.click();
-    const expected = "";
-    const li = document.querySelector("ul li:first-child");
-    const result = li.className;
-    t.equal(result, expected);
-    document.querySelector("ul").innerHTML = "";
-});
-
-test("remove a task", t => {
-    const input = document.getElementById("myInput");
-    input.value = "GYM";
-    const button = document.getElementById("addButton");
-    button.click();
-    const remove = document.querySelector("ul li:first-child span:nth-child(1)");
-    remove.click();
-    const expected = 0;
-    const result = document.querySelectorAll("li").length;
+    const result = document.querySelector("ol li span").className;
+    console.log(result);
     t.equal(expected, result);
-    document.querySelector("ul").innerHTML = "";
+    document.getElementById("myList").innerHTML="";
+})
 
-});
+
+test("check edit button" , t=>{
+
+    let taskIn = document.getElementById("taskInput");
+    taskIn.value= "GYM";
+
+    const click = document.querySelector("#add");
+    click.click();
+
+    const pencil = document.querySelector("li div span:nth-child(3)");
+    pencil.click();
+
+    document.querySelector("li input").value="hello";
+    document.querySelector("li button").click();
+
+
+    const expected = "✔hello";
+    const result = document.querySelector("ol li").textContent;
+    console.log(result);
+    t.equal(expected, result);
+    document.getElementById("myList").innerHTML="";
+})
