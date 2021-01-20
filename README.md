@@ -10,7 +10,7 @@ You can edit your note by clicking on the pencil,changing then clicking on OK.
 ![](https://i.imgur.com/7dMAr0a.png)
 
 
-You can mark the completed events/mission by clicking on the <span>&#10003;</span> 
+You can mark the completed events/mission by clicking on the trash symbol
 
 You can delete your note by clicking on  <i class="fa fa-trash-o"></i>
 
