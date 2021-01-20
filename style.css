@@ -4,7 +4,9 @@ h1 {
 }
 
 html {
-    background-color: grey;
+    background-image: url("https://www.theenglishgarden.co.uk/wp-content/uploads/2015/07/Background-colours.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 form {
@@ -20,7 +22,7 @@ form input[type="submit"] {
     border-radius: 10px;
     font-size: x-large;
     cursor: pointer;
-    background: linear-gradient(to right, #00d2ff, #3a7bd5);
+    background: linear-gradient(to right, #b92703, #953f06);
     border: black 3px solid;
 }
 
@@ -29,7 +31,7 @@ form input[type="submit"]:hover {
 }
 
 form input[type="text"]:hover {
-    border: green 3px solid;
+    border: rgb(3, 97, 27) 3px solid;
 }
 
 form input[type="text"] {
@@ -37,7 +39,7 @@ form input[type="text"] {
     height: 30px;
     font-size: x-large;
     border-radius: 7px;
-    border: blue 3px solid;
+    border: rgb(194, 24, 1) 3px solid;
 }
 
 ol {
