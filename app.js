@@ -4,8 +4,13 @@ const ol = document.querySelector("ol");
 
 form.addEventListener("submit", event => {
     event.preventDefault();
+    if(input.value.length === 0)
+        alert("you must write somthing");
+    else
+    {
     addTask(input.value);
     input.value = "";
+    }
 })
 
 function addTask(theTask) {
