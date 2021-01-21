@@ -14,7 +14,7 @@ Your Note Will Be Showen Like This:
 
 You can edit your note by clicking on the pencil,changing then clicking on OK.
 ![](https://i.imgur.com/Aej7sIQ.png)<br>
-![](https://i.imgur.com/jNGZv3Y.png)
+![](https://i.imgur.com/xAc5hED.png)
 
 
 
