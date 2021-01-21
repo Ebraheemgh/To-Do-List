@@ -4,65 +4,66 @@ const ol = document.querySelector("ol");
 
 form.addEventListener("submit", event => {
     event.preventDefault();
-    if(input.value.length === 0)
+    if (input.value.length === 0)
         alert("you must write somthing");
-    else
-    {
-    addTask(input.value);
-    input.value = "";
+    else {
+        addTask(input.value);
+        input.value = "";
     }
 })
 
 function addTask(theTask) {
     const li = document.createElement("li");
-    const span1 = document.createElement("span");
-    const span2 = document.createElement("span");
-    const i1 = document.createElement("i");
-    const span3 = document.createElement("span");
-    const span4 = document.createElement("span");
-    const i2 = document.createElement("i");
+    const todoSpan = document.createElement("span");
+    const removeSpan = document.createElement("span");
+    const trashI = document.createElement("i");
+    const checkSpan = document.createElement("span");
+    const editSpan = document.createElement("span");
+    const pencilI = document.createElement("i");
     const div = document.createElement("div");
-    span1.textContent = theTask;
-    i1.className = "fa fa-trash-o";
-    i2.className = "fa fa-pencil";
-    span3.textContent = "✔";
+    todoSpan.textContent = theTask;
+    trashI.className = "fa fa-trash-o";
+    pencilI.className = "fa fa-pencil";
+    checkSpan.textContent = "✔";
 
 
-    span2.addEventListener("click", e => {
+    removeSpan.addEventListener("click", e => {
         li.remove();
     })
 
-    span3.addEventListener("click", e => {
-        span1.classList.toggle("checked");
+    checkSpan.addEventListener("click", e => {
+        todoSpan.classList.toggle("checked");
     })
 
-    span4.addEventListener("click", e => {
-        span1.remove();
-        span4.style.visibility = "hidden";
+    editSpan.addEventListener("click", e => {
+        todoSpan.remove();
+        editSpan.style.visibility = "hidden";
         const TempInput = document.createElement("input");
         const TempBtn = document.createElement("button");
-        TempInput.value = span1.textContent;
+        TempInput.value = todoSpan.textContent;
         TempBtn.innerHTML = "OK";
 
         li.appendChild(TempInput);
         li.appendChild(TempBtn);
         TempBtn.addEventListener("click", ev => {
-            span1.textContent = TempInput.value;
-            TempInput.remove();
-            TempBtn.remove();
-            li.appendChild(span1);
-            span4.style.visibility = "visible";
+            if (TempInput.value != "") {
+                todoSpan.textContent = TempInput.value;
+                TempInput.remove();
+                TempBtn.remove();
+                li.appendChild(todoSpan);
+                editSpan.style.visibility = "visible";
+            } else {
+                alert("you must write somthing");
+            }
         })
     })
 
-    span2.appendChild(i1);
-    span4.appendChild(i2);
-    div.appendChild(span2);
-    div.appendChild(span3);
-    div.appendChild(span4);
-    li.appendChild(span1);
+    removeSpan.appendChild(trashI);
+    editSpan.appendChild(pencilI);
+    div.appendChild(removeSpan);
+    div.appendChild(checkSpan);
+    div.appendChild(editSpan);
+    li.appendChild(todoSpan);
     li.appendChild(div);
     ol.appendChild(li);
-
-
 }
